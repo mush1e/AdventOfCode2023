@@ -15,7 +15,6 @@ auto main() -> int {
                 last = (int)(ch) - 48;
             }
         }
-        // std::cout << first*10 + last << std::endl;
         sum += first*10 + last;
     }
     std::cout << sum;
