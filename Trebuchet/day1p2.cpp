@@ -14,21 +14,22 @@ auto main() -> int {
         std::string updated_line = token;
         for (auto i = 0u; i < 10;) {
 
-            size_t index = updated_line.find(list[i]);
+            size_t index_found = updated_line.find(list[i]);
 
-            index != std::string::npos 
-                ? updated_line[index+1] = (char)('0' + i)
-                : i++;
+            if (index_found != std::string::npos) 
+                updated_line[index_found+1] = (char)('0' + i);
+            else    
+                i++;
         }
-        int first = -1, last = -1;
+        int first_num = -1, last_num = -1;
 
         for (char ch : updated_line) 
             if(isdigit(ch)) {
-                first < 0 ? first = (int)(ch) - 48 : 0;
-                last = (int)(ch) - 48;
+                first_num < 0 ? first_num = (int)(ch) - 48 : 0;
+                last_num = (int)(ch) - 48;
             }
             
-        sum += first*10 + last;
+        sum += first_num*10 + last_num;
     }
     std::cout << sum << std::endl;
 }
